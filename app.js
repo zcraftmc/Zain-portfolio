@@ -127,6 +127,9 @@ function applyHead(config, page) {
   upsertMeta('meta[name="description"]', { tag: "meta", name: "description", content: id.tagline });
   upsertMeta('meta[name="keywords"]', { tag: "meta", name: "keywords", content: [...new Set(defaultKeywords)].join(", ") });
   upsertMeta('meta[name="robots"]', { tag: "meta", name: "robots", content: "index,follow" });
+  upsertMeta('meta[name="author"]', { tag: "meta", name: "author", content: id.name });
+  upsertMeta('meta[property="og:site_name"]', { tag: "meta", property: "og:site_name", content: "ZCraft Studios" });
+  upsertMeta('meta[name="twitter:creator"]', { tag: "meta", name: "twitter:creator", content: "@zainabusal" });
   upsertMeta('meta[property="og:title"]', { tag: "meta", property: "og:title", content: titles[page] || titles.index });
   upsertMeta('meta[property="og:description"]', { tag: "meta", property: "og:description", content: id.tagline });
   upsertMeta('meta[property="og:type"]', { tag: "meta", property: "og:type", content: "website" });
