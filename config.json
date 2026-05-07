@@ -1,13 +1,13 @@
 {
   "identity": {
     "username": "ZainAbusal",
-    "handle": "@zainabusal",
+    "handle": "@zain-abusal",
     "name": "Zain",
     "role": "Minecraft Resource Developer",
     "studio": "ZCraft Studios",
     "tagline": "Founder of ZCraft Studios. I build high performance Minecraft Resources and provide high quality minecraft services",
     "status": "available for hire",
-    "avatar": "https://cdn.discordapp.com/avatars/1309013418526769285/78ff75f80ee584231a4861bbfe4c3050.webp?size=80",
+    "avatar": "https://i.postimg.cc/Bn1xPNRW/IMG-3484.png",
     "chips": ["Java", "Web", "Discord"]
   },
   "nav": [
@@ -128,7 +128,7 @@
     "intro": "Need a custom website? Custom server setup? Let's talk. Hit me on Discord for the fastest reply, or check out the store on BuiltByBit.",
     "items": [
       { "platform": "discord", "handle": "ZCraft Studios Server", "url": "https://dsc.gg/zcraftstudios" },
-      { "platform": "builtbybit", "handle": "@ZCraft Studios", "url": "https://builtbybit.com" },
+      { "platform": "builtbybit", "handle": "@ZCraft Studios", "url": "https://builtbybit.com/members/zcraft-studios.662024/" },
       { "platform": "github", "handle": "@zain-abusal", "url": "https://github.com/zain-abusal" },
       { "platform": "email", "handle": "zain@z-craft.xyz", "url": "mailto:zain@z-craft.xyz" },
       { "platform": "twitter", "handle": "@zainabusal", "url": "https://x.com/zainabusal" },
