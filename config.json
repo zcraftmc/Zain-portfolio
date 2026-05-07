@@ -3,11 +3,11 @@
     "username": "ZainAbusal",
     "handle": "@zainabusal",
     "name": "Zain",
-    "role": "Minecraft Plugin Developer",
+    "role": "Minecraft Resource Developer",
     "studio": "ZCraft Studios",
     "tagline": "Founder of ZCraft Studios. I build high performance Minecraft Resources and provide high quality minecraft services",
     "status": "available for hire",
-    "avatar": "https://cdn.builtbybit.com/avatars/m/662/662024.jpg?1778097050",
+    "avatar": "https://cdn.discordapp.com/avatars/1309013418526769285/78ff75f80ee584231a4861bbfe4c3050.webp?size=80",
     "chips": ["Java", "Web", "Discord"]
   },
   "nav": [
@@ -44,7 +44,7 @@
   "mainProject": {
     "title": "ZCraf Studios",
     "label": "zcraft_studios | main project",
-    "logo": "https://cdn.builtbybit.com/avatars/m/662/662024.jpg?1778097050",
+    "logo": "https://i.postimg.cc/Bn1xPNRW/IMG-3484.png",
     "description": "Premium minecraft development studio. Every resource ships with modern GUI systems, deep config, PlaceholderAPI support, and active maintenance. Used across 100+ servers worldwide.",
     "stats": [
       { "value": "5+", "label": "resources" },
@@ -60,7 +60,7 @@
     {
       "name": "Minecraft Community Hub",
       "brand": "ZCraft Studios",
-      "image": "https://leafstudios.dev/images/banner.png",
+      "image": "https://i.postimg.cc/5NbG3QbC/image-2026-05-08-003210475.png",
       "summary": "Production-ready Minecraft server website with admin dashboard, Discord OAuth, forums, ban appeals, SEO, email system, and live chat bridge. Fully configurable via .env — no code editing required.",
       "tags": ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
       "url": "https://builtbybit.com/resources/minecraft-community-hub.101610/",
@@ -77,10 +77,10 @@
     {
       "name": "Evidence Case Bot",
       "brand": "ZCraft Studios",
-      "image": "https://leafstudios.dev/images/banner.png",
+      "image": "https://cdn.builtbybit.com/attachments/2136/2136920-20f168442fce39e1352c41014cd07b85.jpg",
       "summary": "Discord-native staff case management system with Forum threads, auto-tagging, appeal tracking, dual SQLite + JSON storage, and full audit logs — all via slash commands. Every case gets a unique ticket ID.",
       "tags": ["Node.js", "Discord.js", "SQLite", "Slash Commands"],
-      "url": "https://discord.gg/",
+      "url": "https://builtbybit.com/resources/evidence-bot-discord-case-evidence.106805/",
       "review": {
         "text": "Finally a proper evidence system. No more messy spreadsheets — everything is tracked, tagged, and logged automatically.",
         "reviewer": {
@@ -101,8 +101,8 @@
         "reviews": [
           {
             "text": "Amazing work, was available most of the day and very quick.",
-            "rating": 5,
-            "reviewer": { "name": "Almoeatsem", "handle": "@almoeatsem", "avatar": "https://api.dicebear.com/7.x/identicon/svg?seed=net" }
+            "rating": 5.0,
+            "reviewer": { "name": "Almotasem", "handle": "@almotasem", "avatar": "https://cdn.discordapp.com/avatars/1179436345370869773/32ff2e76d9946f8d6a4d116d95dd9955.webp?size=80" }
           }
         ]
       },
@@ -127,7 +127,7 @@
   "contact": {
     "intro": "Need a custom website? Custom server setup? Let's talk. Hit me on Discord for the fastest reply, or check out the store on BuiltByBit.",
     "items": [
-      { "platform": "discord", "handle": "ZCraft Studios Server", "url": "https://discord.gg/" },
+      { "platform": "discord", "handle": "ZCraft Studios Server", "url": "https://dsc.gg/zcraftstudios" },
       { "platform": "builtbybit", "handle": "@ZCraft Studios", "url": "https://builtbybit.com" },
       { "platform": "github", "handle": "@zain-abusal", "url": "https://github.com/zain-abusal" },
       { "platform": "email", "handle": "zain@z-craft.xyz", "url": "mailto:zain@z-craft.xyz" },
