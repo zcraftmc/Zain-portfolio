@@ -7,7 +7,7 @@
     "studio": "ZCraft Studios",
     "tagline": "Founder of ZCraft Studios. I build high performance Minecraft Resources and provide high quality minecraft services",
     "status": "available for hire",
-    "avatar": "https://leafstudios.dev/images/banner.png",
+    "avatar": "https://cdn.builtbybit.com/avatars/m/662/662024.jpg?1778097050",
     "chips": ["Java", "Web", "Discord"]
   },
   "nav": [
@@ -44,7 +44,7 @@
   "mainProject": {
     "title": "ZCraf Studios",
     "label": "zcraft_studios | main project",
-    "logo": "https://leafstudios.dev/images/banner.png",
+    "logo": "https://cdn.builtbybit.com/avatars/m/662/662024.jpg?1778097050",
     "description": "Premium minecraft development studio. Every resource ships with modern GUI systems, deep config, PlaceholderAPI support, and active maintenance. Used across 100+ servers worldwide.",
     "stats": [
       { "value": "5+", "label": "resources" },
