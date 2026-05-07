@@ -24,7 +24,7 @@
   "about": {
     "developer": {
       "name": "Zain Abusal",
-      "alias": "ZainAbusal",
+      "alias": "Zain-Abusal",
       "studio": "ZCraft Studios",
       "focus": ["Minecraft Development", "Custom Game Systems", "Modern GUI Design"],
       "status": "open for work"
@@ -102,7 +102,7 @@
           {
             "text": "Amazing work, was available most of the day and very quick.",
             "rating": 5.0,
-            "reviewer": { "name": "Almotasem", "handle": "@almotasem", "avatar": "https://cdn.discordapp.com/avatars/1179436345370869773/32ff2e76d9946f8d6a4d116d95dd9955.webp?size=80" }
+            "reviewer": { "name": "Almotasem", "handle": "@almotasem", "avatar": "https://cdn.discordapp.com/avatars/1179436345370869773/32ff2e76d9946f8d6a4d116d95dd9955.webp?size=20" }
           }
         ]
       },
