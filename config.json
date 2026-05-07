@@ -5,10 +5,10 @@
     "name": "Zain",
     "role": "Minecraft Plugin Developer",
     "studio": "ZCraft Studios",
-    "tagline": "Founder of ZCrafy Studios. I build high performance Minecraft Resources and provide high quality minecraft services",
+    "tagline": "Founder of ZCraft Studios. I build high performance Minecraft Resources and provide high quality minecraft services",
     "status": "available for hire",
     "avatar": "https://leafstudios.dev/images/banner.png",
-    "chips": ["Java", "Plugins", "Discord"]
+    "chips": ["Java", "Web", "Discord"]
   },
   "nav": [
     { "label": "about", "to": "/about" },
@@ -35,7 +35,7 @@
       { "name": "Python", "level": 95 },
       { "name": "React", "level": 95 },
       { "name": "JavaScript", "level": 80 },
-      { "name": "MySQL / SQLite", "level": 80 },
+      { "name": "MySQL / SQLite", "level": 75 },
       { "name": "GUI Based", "level": 88 },
       { "name": "Performance Opt.", "level": 90 }
     ],
@@ -100,9 +100,9 @@
         "desc": "Private and public resources built for creators, minigames, and network systems.",
         "reviews": [
           {
-            "text": "Delivered exactly what we needed, ahead of schedule.",
+            "text": "Amazing work, was available most of the day and very quick.",
             "rating": 5,
-            "reviewer": { "name": "NetworkOwner", "handle": "@netowner", "avatar": "https://api.dicebear.com/7.x/identicon/svg?seed=net" }
+            "reviewer": { "name": "Almoeatsem", "handle": "@almoeatsem", "avatar": "https://api.dicebear.com/7.x/identicon/svg?seed=net" }
           }
         ]
       },
@@ -125,20 +125,20 @@
     ]
   },
   "contact": {
-    "intro": "Need a custom plugin? Custom server setup? Let's talk. Hit me on Discord for the fastest reply, or check out the store on BuiltByBit.",
+    "intro": "Need a custom website? Custom server setup? Let's talk. Hit me on Discord for the fastest reply, or check out the store on BuiltByBit.",
     "items": [
       { "platform": "discord", "handle": "ZCraft Studios Server", "url": "https://discord.gg/" },
       { "platform": "builtbybit", "handle": "@ZCraft Studios", "url": "https://builtbybit.com" },
       { "platform": "github", "handle": "@zain-abusal", "url": "https://github.com/zain-abusal" },
-      { "platform": "email", "handle": "zain@leafstudios.dev", "url": "mailto:zain@z-craft.xyz" },
+      { "platform": "email", "handle": "zain@z-craft.xyz", "url": "mailto:zain@z-craft.xyz" },
       { "platform": "twitter", "handle": "@zainabusal", "url": "https://x.com/zainabusal" },
-      { "platform": "website", "handle": "leafstudios.dev", "url": "https://studio.z-craft.xyz" }
+      { "platform": "website", "handle": "studio.z-craft.xyz", "url": "https://studio.z-craft.xyz" }
     ]
   },
   "footer": {
     "text": "Zain Abusal | ZCraft Studios | 2026",
     "links": [
-      { "label": "leafstudios.dev", "url": "https://studio.z-craft.xyz" },
+      { "label": "studio.z-craft.xyz", "url": "https://studio.z-craft.xyz" },
       { "label": "plugins", "url": "/portfolio" },
       { "label": "github", "url": "https://github.com/zain-abusal" }
     ]
