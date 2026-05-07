@@ -35,16 +35,37 @@ function sectionLabel(text) {
   return el("div", { class: "section-label" }, text);
 }
 
+function normalizeRoute(path) {
+  const url = new URL(path, location.href);
+  let route = url.pathname.replace(/\/$/, "");
+  if (!route) return "/";
+  if (route.endsWith('.html')) route = route.slice(0, -5);
+  return route || "/";
+}
+
+function fileFallbackPath(path) {
+  return path === "/" ? "index.html" : `${path.replace(/^\//, "")}.html`;
+}
+
 function renderHeader(config) {
-  const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const currentRoute = normalizeRoute(location.pathname || "/");
   const header = el("header", { class: "topbar" },
     el("div", { class: "topbar-inner" },
-      el("a", { href: "index.html", class: "topbar-logo" }, config.identity.username),
+      el("a", { href: "/", class: "topbar-logo" }, config.identity.username),
       el("nav", { class: "topbar-nav" },
         ...config.nav.map(n => {
-          const file = (n.to === "/" ? "index" : n.to.replace(/^\//, "")) + ".html";
-          const a = el("a", { href: file }, n.label);
-          if (file === here) a.classList.add("active");
+          const href = n.to || "/";
+          const a = el("a", { href }, n.label);
+          if (normalizeRoute(href) === currentRoute) {
+            a.classList.add("active");
+            a.setAttribute("aria-current", "page");
+          }
+          if (location.protocol === 'file:' && href !== "/") {
+            a.addEventListener("click", e => {
+              e.preventDefault();
+              location.href = fileFallbackPath(href);
+            });
+          }
           return a;
         })
       )
@@ -58,7 +79,16 @@ function renderFooter(config) {
     el("div", { class: "footer-inner" },
       el("div", { class: "footer-left" }, el("span", {}, "// "), config.footer.text),
       el("div", { class: "footer-links" },
-        ...config.footer.links.map(l => el("a", { href: l.url }, l.label))
+        ...config.footer.links.map(l => {
+          const a = el("a", { href: l.url }, l.label);
+          if (location.protocol === 'file:' && l.url.startsWith('/')) {
+            a.addEventListener('click', e => {
+              e.preventDefault();
+              location.href = fileFallbackPath(l.url);
+            });
+          }
+          return a;
+        })
       )
     )
   );
@@ -73,17 +103,56 @@ function applyHead(config, page) {
     portfolio: `Portfolio — ${id.name}`,
     contact: `Contact — ${id.name}`,
   };
+  const pagePath = page === "index" ? "/" : `/${page}`;
+  const origin = location.protocol === "file:" ? "" : location.origin;
+  const pageUrl = `${origin}${pagePath}`;
+
   document.title = titles[page] || titles.index;
-  const setMeta = (sel, attr, val) => {
-    let m = document.head.querySelector(sel);
-    if (!m) { m = document.createElement("meta"); document.head.append(m); const [a, v] = sel.replace(/[\[\]]/g, "").split("="); m.setAttribute(a, v.replace(/"/g, "")); }
-    m.setAttribute(attr, val);
+
+  const upsertMeta = (selector, attrs) => {
+    let tag = document.head.querySelector(selector);
+    if (!tag) {
+      tag = document.createElement(attrs.tag || "meta");
+      document.head.append(tag);
+    }
+    for (const [key, val] of Object.entries(attrs)) {
+      if (key === "tag") continue;
+      tag.setAttribute(key, val);
+    }
+    return tag;
   };
-  setMeta('meta[name="description"]', "content", id.tagline);
-  // favicon
-  let link = document.head.querySelector('link[rel="icon"]');
-  if (!link) { link = document.createElement("link"); link.rel = "icon"; document.head.append(link); }
-  link.href = id.avatar;
+
+  const defaultKeywords = [id.role, "Minecraft", "resource developer", "web development", ...(config.about?.stack || [])];
+
+  upsertMeta('meta[name="description"]', { tag: "meta", name: "description", content: id.tagline });
+  upsertMeta('meta[name="keywords"]', { tag: "meta", name: "keywords", content: [...new Set(defaultKeywords)].join(", ") });
+  upsertMeta('meta[name="robots"]', { tag: "meta", name: "robots", content: "index,follow" });
+  upsertMeta('meta[property="og:title"]', { tag: "meta", property: "og:title", content: titles[page] || titles.index });
+  upsertMeta('meta[property="og:description"]', { tag: "meta", property: "og:description", content: id.tagline });
+  upsertMeta('meta[property="og:type"]', { tag: "meta", property: "og:type", content: "website" });
+  upsertMeta('meta[property="og:url"]', { tag: "meta", property: "og:url", content: pageUrl });
+  upsertMeta('meta[property="og:image"]', { tag: "meta", property: "og:image", content: id.avatar });
+  upsertMeta('meta[name="twitter:card"]', { tag: "meta", name: "twitter:card", content: "summary_large_image" });
+  upsertMeta('meta[name="twitter:title"]', { tag: "meta", name: "twitter:title", content: titles[page] || titles.index });
+  upsertMeta('meta[name="twitter:description"]', { tag: "meta", name: "twitter:description", content: id.tagline });
+  upsertMeta('meta[name="twitter:image"]', { tag: "meta", name: "twitter:image", content: id.avatar });
+  upsertMeta('meta[name="theme-color"]', { tag: "meta", name: "theme-color", content: "#0c0e10" });
+
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.append(canonical);
+  }
+  canonical.href = pageUrl;
+
+  let favicon = document.head.querySelector('link[rel="icon"]');
+  if (!favicon) {
+    favicon = document.createElement("link");
+    favicon.rel = "icon";
+    document.head.append(favicon);
+  }
+  favicon.href = id.avatar;
 }
 
 // ---------- Pages ----------
@@ -110,8 +179,26 @@ function renderIndex(config) {
           el("div", { class: "hero-role hero-cursor" }, identity.role),
           el("p", { class: "hero-desc" }, el("span", { class: "kw-comment" }, `/* ${identity.tagline} */`)),
           el("div", { class: "hero-actions" },
-            el("a", { href: "contact.html", class: "btn btn-primary" }, "get in touch"),
-            el("a", { href: "portfolio.html", class: "btn btn-ghost" }, "view work")
+            el("a", {
+            href: "/contact",
+            class: "btn btn-primary",
+            onClick: e => {
+              if (location.protocol === 'file:') {
+                e.preventDefault();
+                location.href = fileFallbackPath('/contact');
+              }
+            }
+          }, "get in touch"),
+          el("a", {
+            href: "/portfolio",
+            class: "btn btn-ghost",
+            onClick: e => {
+              if (location.protocol === 'file:') {
+                e.preventDefault();
+                location.href = fileFallbackPath('/portfolio');
+              }
+            }
+          }, "view work")
           )
         ),
         el("div", { class: "hero-skin-panel" },

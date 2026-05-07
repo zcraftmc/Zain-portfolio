@@ -42,7 +42,7 @@
     "alsoKnow": ["Custom GUIs", "HEX Colors", "Async Tasks", "Events API", "Web-Dev", "Plugin Hooks"]
   },
   "mainProject": {
-    "title": "ZCraf Studios",
+    "title": "ZCraft Studios",
     "label": "zcraft_studios | main project",
     "logo": "https://i.postimg.cc/Bn1xPNRW/IMG-3484.png",
     "description": "Premium minecraft development studio. Every resource ships with modern GUI systems, deep config, PlaceholderAPI support, and active maintenance. Used across 100+ servers worldwide.",
